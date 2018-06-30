@@ -1,0 +1,19 @@
+{
+  "name": "wholesomebot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/escusado/wholesomebot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/escusado/wholesomebot/issues"
+  },
+  "homepage": "https://github.com/escusado/wholesomebot#readme"
+}
