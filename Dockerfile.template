@@ -12,7 +12,8 @@ COPY . /usr/src/app
 
 WORKDIR /
 RUN sudo apt-get update
-RUN sudo apt-get install python3-smbus
+RUN sudo apt-get install -y python3-smbus
+RUN sudo apt-get install -y i2c-tools
 
 
 EXPOSE 8080
