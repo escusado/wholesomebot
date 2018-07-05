@@ -3,8 +3,16 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node
 ENV INITSYSTEM on
 
 RUN sudo apt-get update
-RUN sudo apt-get install -y python3-smbus
-RUN sudo apt-get install -y i2c-tools
+RUN sudo apt-get install -y python3-smbus \
+                            i2c-tools \
+                            build-essential \
+                            python-dev \
+                            python-pip
+
+WORKDIR /usr/src/
+RUN git clone https://github.com/adafruit/Adafruit-Motor-HAT-Python-Library.git
+RUN cd Adafruit-Motor-HAT-Python-Library
+RUN sudo python setup.py install
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
