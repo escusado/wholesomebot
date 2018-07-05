@@ -11,7 +11,7 @@ RUN sudo apt-get install -y python3-smbus \
 
 WORKDIR /usr/src/
 RUN git clone https://github.com/adafruit/Adafruit-Motor-HAT-Python-Library.git
-RUN cd Adafruit-Motor-HAT-Python-Library
+WORKDIR /usr/src/Adafruit-Motor-HAT-Python-Library
 RUN sudo python setup.py install
 
 RUN mkdir -p /usr/src/app
