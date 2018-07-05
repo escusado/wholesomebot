@@ -2,6 +2,10 @@ FROM resin/%%RESIN_MACHINE_NAME%%-node
 
 ENV INITSYSTEM on
 
+RUN sudo apt-get update
+RUN sudo apt-get install -y python3-smbus
+RUN sudo apt-get install -y i2c-tools
+
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
 
@@ -10,11 +14,5 @@ RUN npm install
 
 COPY . /usr/src/app
 
-WORKDIR /
-RUN sudo apt-get update
-RUN sudo apt-get install -y python3-smbus
-RUN sudo apt-get install -y i2c-tools
-
-
 EXPOSE 8080
-CMD [ "npm", "start" ]
+CMD modprobe i2c-dev && npm start
