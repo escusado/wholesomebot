@@ -12,7 +12,7 @@ COPY . /usr/src/app
 
 WORKDIR /
 RUN sudo apt-get update
-RUN sudo apt-get install -t wheezy i2c-tools
+RUN sudo apt-get install python3-smbus
 
 
 EXPOSE 8080
