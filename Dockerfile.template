@@ -11,8 +11,8 @@ RUN npm install
 COPY . /usr/src/app
 
 WORKDIR /
-RUN sudo apt-get install -y python-smbus
-RUN sudo apt-get install -y i2c-tools
+RUN sudo apt-get update
+RUN sudo apt-get install -t wheezy i2c-tools
 
 
 EXPOSE 8080
