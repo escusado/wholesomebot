@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+  
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/escusado/wholesomebot/issues"
   },
-  "homepage": "https://github.com/escusado/wholesomebot#readme"
+  "homepage": "https://github.com/escusado/wholesomebot#readme",
+  "dependencies": {
+    "motor-hat": "^2.0.2"
+  }
 }

@@ -23,4 +23,5 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 8080
-CMD modprobe i2c-dev && npm start
+#CMD modprobe i2c-dev && npm start
+CMD PYTHONPATH=/Users/toily/code/wholesomebot python index.py
