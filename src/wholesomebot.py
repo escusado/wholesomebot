@@ -1,12 +1,12 @@
-from app.motors_controller import MotorsController
+from app.rover import Rover
 
 class Wholesomebot():
   def __init__(self):
     print('> Wholesomebot')
-    self.motorsController = MotorsController()
+    self.rover = Rover()
 
   def setup(self):
-    self.motorsController.setup()
+    self.rover.setup()
 
   def start(self):
     print('> Wholesomebot.started')
