@@ -1,9 +1,10 @@
-from ..lib.motor import Motor
+
+from ..lib.motor_factory import MotorFactory
 
 class Wheel():
-  def __init__(self):
-    print('> Wheel')
-    self.motor = Motor()
+  def __init__(self, id):
+    print('> Wheel %d' % id)
+    self.motor = MotorFactory().makeMotor(id)
 
   def setup(self):
     print('setup Wheel')
