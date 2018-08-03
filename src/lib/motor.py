@@ -12,4 +12,5 @@ class Motor():
     print('set speed %d', properties['speed'])
     self.motor.setSpeed(properties['speed'])
     self.motor.run(Adafruit_MotorHAT.FORWARD);
-    print('speed set')
+    self.motor.run(Adafruit_MotorHAT.RELEASE);
+    print('speed and fw set')
