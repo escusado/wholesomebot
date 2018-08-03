@@ -10,3 +10,6 @@ class Wholesomebot():
 
   def start(self):
     print('> Wholesomebot.started')
+    while(True):
+      self.rover.update()
+      time.sleep(0.01)

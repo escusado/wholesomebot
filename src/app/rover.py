@@ -8,3 +8,6 @@ class Rover():
 
   def setup(self):
     print('setup Rover')
+
+  def update(self):
+    self.fourWheelDrive.update()

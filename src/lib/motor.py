@@ -7,10 +7,16 @@ class Motor():
     self.motor = motorInstance
     self.speed = 0 # backwards - 0 + foward
 
+  def arm(self):
+    print('Motor arm')
+    self.motor.run(Adafruit_MotorHAT.RELEASE)
+    self.motor.run(Adafruit_MotorHAT.FORWARD)
+
   def set(self, properties):
     print('set %s', json.dumps(properties))
-    print('set speed %d', properties['speed'])
-    self.motor.setSpeed(properties['speed'])
-    self.motor.run(Adafruit_MotorHAT.FORWARD);
-    self.motor.run(Adafruit_MotorHAT.RELEASE);
-    print('speed and fw set')
+    self.state.update(properties)
+
+  def update(self):
+    print('setting speed:', self.state['speed'])
+    self.motor.setSpeed(self.state['speed'])
+    print('speed set')
