@@ -1,6 +1,7 @@
 import json
 from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 from .motor import Motor
+import atexit
 
 class MotorFactory():
   class __MotorFactory:
