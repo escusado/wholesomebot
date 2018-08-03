@@ -10,5 +10,5 @@ class Wheel():
   def accelerate(self):
     print('Wheel.accelerate')
     self.motor.set({
-        'speed': 10
+        'speed': 100
     })
