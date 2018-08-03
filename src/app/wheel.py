@@ -8,3 +8,6 @@ class Wheel():
 
   def setup(self):
     print('setup Wheel')
+    self.motor.set({
+        'speed': 1
+    })
