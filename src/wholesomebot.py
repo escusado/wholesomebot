@@ -1,3 +1,4 @@
+import time
 from app.rover import Rover
 
 class Wholesomebot():
