@@ -8,21 +8,22 @@ class MotorFactory():
       return repr(self) + self.val
   instance = None
   def __init__(self):
-    mh = Adafruit_MotorHAT(addr=0x60)
-
     if not MotorFactory.instance:
       MotorFactory.instance = MotorFactory.__MotorFactory()
+      MotorFactory.instance.mh = Adafruit_MotorHAT(addr=0x60)
+
       atexit.register(MotorFactory.instance.turnOffMotors)
+
 
   def __getattr__(self, name):
     return getattr(self.instance, name)
 
   def turnOffMotors():
-    mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
-    mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
+    self.mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
+    self.mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
+    self.mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
+    self.mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
 
   def makeMotor(self, id):
     print('> makeMotor %d' % id)
-    return Motor(mh.getMotor(id))
+    return Motor(self.mh.getMotor(id))
