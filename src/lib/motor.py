@@ -8,4 +8,6 @@ class Motor():
 
   def set(self, properties):
     print('set %s', json.dumps(properties))
+    print('set speed %d', properties['speed'])
     self.motor.setSpeed(properties['speed'])
+    print('speed set')
