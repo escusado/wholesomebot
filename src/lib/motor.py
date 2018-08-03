@@ -5,7 +5,9 @@ class Motor():
   def __init__(self, motorInstance):
     print('> Motor')
     self.motor = motorInstance
-    self.speed = 0 # backwards - 0 + foward
+    self.state = {
+      speed : 0 # backwards - 0 + foward
+    }
 
   def arm(self):
     print('Motor arm')
@@ -18,5 +20,9 @@ class Motor():
 
   def update(self):
     print('setting speed:', self.state['speed'])
-    self.motor.setSpeed(self.state['speed'])
+    if(self.state['speed']):
+      self.motor.run(Adafruit_MotorHAT.FORWARD)
+    else:
+      self.motor.run(Adafruit_MotorHAT.BACKWARD)
+    self.motor.setSpeed(abs(self.state['speed']))
     print('speed set')
