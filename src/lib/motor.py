@@ -1,4 +1,5 @@
 import json
+from Adafruit_MotorHAT import Adafruit_MotorHAT, Adafruit_DCMotor
 
 class Motor():
   def __init__(self, motorInstance):
@@ -10,4 +11,5 @@ class Motor():
     print('set %s', json.dumps(properties))
     print('set speed %d', properties['speed'])
     self.motor.setSpeed(properties['speed'])
+    self.motor.run(Adafruit_MotorHAT.FORWARD);
     print('speed set')
