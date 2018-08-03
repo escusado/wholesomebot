@@ -6,7 +6,18 @@ import atexit
 class MotorFactory():
   class __MotorFactory:
     def __str__(self):
-      return repr(self) + self.val
+      return repr(self)
+
+    def turnOffMotors(self):
+      self.mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
+      self.mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
+      self.mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
+      self.mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
+
+    def makeMotor(self, id):
+      print('> makeMotor %d' % id)
+      return Motor(self.mh.getMotor(id))
+
   instance = None
   def __init__(self):
     if not MotorFactory.instance:
@@ -18,13 +29,3 @@ class MotorFactory():
 
   def __getattr__(self, name):
     return getattr(self.instance, name)
-
-  def turnOffMotors():
-    self.mh.getMotor(1).run(Adafruit_MotorHAT.RELEASE)
-    self.mh.getMotor(2).run(Adafruit_MotorHAT.RELEASE)
-    self.mh.getMotor(3).run(Adafruit_MotorHAT.RELEASE)
-    self.mh.getMotor(4).run(Adafruit_MotorHAT.RELEASE)
-
-  def makeMotor(self, id):
-    print('> makeMotor %d' % id)
-    return Motor(self.mh.getMotor(id))
