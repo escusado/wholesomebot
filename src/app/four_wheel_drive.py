@@ -11,4 +11,7 @@ class FourWheelDrive():
     print('setup FourWheelDrive')
 
   def update(self):
-    self.wheels[0].accelerate()
+    self.wheels[0].accelerate(10)
+    self.wheels[1].accelerate(10)
+    self.wheels[2].accelerate(10)
+    self.wheels[3].accelerate(10)

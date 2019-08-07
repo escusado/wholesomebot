@@ -7,8 +7,8 @@ class Wheel():
     self.motor = MotorFactory().makeMotor(id)
     self.motor.arm()
 
-  def accelerate(self):
+  def accelerate(self, speed):
     print('Wheel.accelerate')
     self.motor.set({
-        'speed': 100
+        'speed': speed
     })
